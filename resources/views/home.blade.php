@@ -19,7 +19,7 @@
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner d-flex" style="max-height: 400px;">
+  <div class="carousel-inner d-flex" style="max-height: 400px;" >
     <div class="carousel-item active">
       <img src="{{ asset('storage/images/devps.jpg') }}" class="d-block w-100" alt="..." style="height: 350px;">
       <div class="carousel-caption d-block d-md-block" data-bs-interval="10000">

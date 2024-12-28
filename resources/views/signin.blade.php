@@ -38,7 +38,7 @@
     <div class="d-flex m-3">
         <span>Avez-vous déjà un compte ? Veuillez-vous connecter ici s'il vous plaît !</span>
         <i class="bi bi-forward-fill" style="font-size: 1rem; color: black;"></i>
-        <a href="/CLIENT/Src/Public/Login/login.html" class="login-button">Se connecter</a>
+        <a href=" {{ route('login')}}" class="login-button">Se connecter</a>
     </div>
 </div>
 @endsection

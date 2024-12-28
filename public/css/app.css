@@ -19,6 +19,7 @@
 
 body{
     height: 100vh;
+    width: 100%;
     background-color: var(--backgroundColor);
     color: var(--textColor);
     font-family: Arial , sans-serif;
@@ -32,6 +33,8 @@ a{
 li{
     list-style: none;
 }
+
+
 
 .side-menu{
     position: fixed;
@@ -126,7 +129,7 @@ li{
 
 .navbar{
     top: 0;
-    padding: 5px 0;
+    padding: 5px 10px;
     z-index: 1000; /* Pour s'assurer que la nav reste au-dessus des autres éléments */
     background-color: white; /* Optionnel : ajoute un fond à la navbar */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre pour plus de style */

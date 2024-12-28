@@ -22,7 +22,7 @@
     <div class=" d-flex m-3">
         <span>Si vous n'avez pas de compte, veuillez s'inscrire ici s'il vous plait !
             <i class="bi bi-forward-fill" style="font-size: 1rem; color: black;"></i>
-            <a href="/CLIENT/Src/Public/Login/inscription.html" class="login-button">S'inscrire</a>
+            <a href=" {{ route('signin')}}" class="login-button">S'inscrire</a>
         </span>
     </div>
 </div>

@@ -11,12 +11,12 @@
         <title>@yield('CIN')</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <h1>Université <img id="unz" src="{{ asset('storage/images/logo-unz.png') }}" alt="UNZ" class="img-fluid img-circle" style="max-width: 50px;"> NORBERT ZONGO</h1>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center pt-2">
+            <h1 class="fw-bold">Université <img id="unz" src="{{ asset('storage/images/logo-unz.png') }}" alt="UNZ" class="img-fluid img-circle d-flpx-4" style="max-width: 60px;"> NORBERT ZONGO</h1>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-navbar">
-            <a class="navbar-brand" href="/CLIENT/Src/Public/Home/home.html">
+            <a class="navbar-brand fw-bold" href=" {{ route('home')}}">
                 <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="CIN" class="img-fluid" style="max-width: 50px;"> CIN
             </a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarLabel">
@@ -28,15 +28,15 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item"><a class="nav-link" href="/CLIENT/Src/Public/Home/home.html">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/CLIENT/Src/Public/Events/events.html">Formations</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/CLIENT/Src/Public/Blog/blog.html">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/CLIENT/Src/Public/Membership/membership.html">Adhésion</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/CLIENT/Src/Public/About/about.html">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('home')}}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('training')}}">Formations</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('blog')}}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('membership')}}">Adhésion</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('about')}}">À propos</a></li>
                     </ul>
                 </div>
             </div>
-            <a href="/CLIENT/Src/Public/Login/login.html" class="login-button">Se connecter</a>
+            <a href=" {{ route('login')}}" class="login-button">Se connecter</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle-navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

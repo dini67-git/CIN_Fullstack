@@ -20,8 +20,8 @@
     </div>
     <div class="memb-link">
         <h1>Voir les liens d'adhésion ou services de renseignement</h1>
-        <p>S'inscrire ici <a href="/CLIENT/Src/Public/Login/inscription.html">cliquez ici !</a></p>
-        <a href="">Envoyez un mail</a>
+        <p>S'inscrire ici <a href=" {{ route('signin')}}">cliquez ici !</a></p>
+        <a href="#">Envoyez un mail</a>
     </div>
 </div>
 @endsection

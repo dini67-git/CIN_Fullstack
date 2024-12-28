@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div id="about-img" class="col-lg-12">
-            <img src="/CLIENT/Assets/img/img2.jpg" alt="" class="img-fluid">
+            <img src=" {{ asset('storage/images/img2.jpg')}}" alt="" class="img-fluid">
     </div>
     <div id="about-box" class="m-3">
             <div class="about-box">

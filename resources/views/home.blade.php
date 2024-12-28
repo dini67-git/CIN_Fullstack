@@ -3,7 +3,7 @@
 @section('title', 'Accueil')
 
 @section('content')
-<div class="row home-block1 mt-2">
+<div class="home-block1 row  mt-2">
     <div class="image-container">
       <img src="{{ asset('storage/images/techn.jpg') }}" alt="img techn" class="img-fluid img-responsive" style="opacity: 0.8; max-height: 400px; width: 100%;">
       <div class="text-overlay">

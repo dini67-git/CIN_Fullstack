@@ -11,7 +11,7 @@
                         <div class="post-head">
                             <h3>Titre de l'Article 1</h3>
                             <span class="date">Publié le 10/10/2024</span>
-                            <img src="/CLIENT/Assets/img/twoinf.jpg" class="img-fluid" alt="Image de l'article 1">
+                            <img src=" {{ asset('storage/images/twoinf.jpg')}}" class="img-fluid" alt="Image de l'article 1">
                         </div>
                         <div class="body">
                             <p class="excerpt">Ceci est un extrait du contenu de l'article 1...</p>
@@ -23,7 +23,7 @@
                         <div class="post-head">
                             <h3>Titre de l'Article 2</h3>
                             <span class="date">Publié le 10/11/2024</span>
-                            <img src="/CLIENT/Assets/img/twoinf.jpg" class="img-fluid" alt="Image de l'article 1">
+                            <img src="{{ asset('storage/images/twoinf.jpg')}}" class="img-fluid" alt="Image de l'article 1">
                         </div>
                         <div class="body">
                             <p class="excerpt">Ceci est un extrait du contenu de l'article 1...</p>
@@ -35,7 +35,7 @@
                         <div class="post-head">
                             <h3>Titre de l'Article 3</h3>
                             <span class="date">Publié le 15/11/2024</span>
-                            <img src="/CLIENT/Assets/img/twoinf.jpg" class="img-fluid" alt="Image de l'article 1">
+                            <img src="{{ asset('storage/images/twoinf.jpg')}}" class="img-fluid" alt="Image de l'article 1">
                         </div>
                         <div class="body">
                             <p class="excerpt">Ceci est un extrait du contenu de l'article 1...</p>
@@ -47,7 +47,7 @@
                         <div class="post-head">
                             <h3>Titre de l'Article 4</h3>
                             <span class="date">Publié le 16/11/2024</span>
-                            <img src="/CLIENT/Assets/img/twoinf.jpg" class="img-fluid" alt="Image de l'article 1">
+                            <img src="{{ asset('storage/images/twoinf.jpg')}}" class="img-fluid" alt="Image de l'article 1">
                         </div>
                         <div class="body">
                             <p class="excerpt">Ceci est un extrait du contenu de l'article 1...</p>
@@ -59,7 +59,7 @@
                         <div class="post-head">
                             <h3>Titre de l'Article 5</h3>
                             <span class="date">Publié le 17/11/2024</span>
-                            <img src="/CLIENT/Assets/img/twoinf.jpg" class="img-fluid" alt="Image de l'article 1">
+                            <img src="{{ asset('storage/images/twoinf.jpg')}}" class="img-fluid" alt="Image de l'article 1">
                         </div>
                         <div class="body">
                             <p class="excerpt">Ceci est un extrait du contenu de l'article 1...</p>
@@ -71,7 +71,7 @@
                         <div class="post-head">
                             <h3>Titre de l'Article 6</h3>
                             <span class="date">Publié le 18/11/2024</span>
-                            <img src="/CLIENT/Assets/img/twoinf.jpg" class="img-fluid" alt="Image de l'article 1">
+                            <img src="{{ asset('storage/images/twoinf.jpg')}}" class="img-fluid" alt="Image de l'article 1">
                         </div>
                         <div class="body">
                             <p class="excerpt">Ceci est un extrait du contenu de l'article 1...</p>

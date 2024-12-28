@@ -1,14 +1,28 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;&display=swap');
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --primaryColor: #3498db;
+    --secondaryColor: #2ecc71;
+    --accentColor: #e74c3c;
+    --backgroundColor: #ecf0f1;
+    --textColor: #2c3e50;
+    --footColor: hwb(147 10% 35%);
+    --fontSize: 18px;
 }
 
 body{
-    min-height: 100vh;
+    height: 100vh;
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    font-family: Arial , sans-serif;
+    background-color: #FFF3F6FF;
 }
 
 a{
@@ -94,4 +108,525 @@ li{
 .dash-container .header .nav .user{
     flex: 1;
     background: royalblue;
+}
+
+
+
+
+
+
+
+#header-placeholder{
+    background-color: var(--primaryColor);
+    width: 100%;
+    margin: 0;
+    text-align: center;
+
+}
+
+.navbar{
+    top: 0;
+    padding: 5px 0;
+    z-index: 1000; /* Pour s'assurer que la nav reste au-dessus des autres éléments */
+    background-color: white; /* Optionnel : ajoute un fond à la navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre pour plus de style */
+}
+
+.offcanvas {
+    background-color: #070435;
+}
+
+.offcanvas img{
+    margin-right: 6px;
+}
+
+.offcanvas a{
+    color: var(--primaryColor);
+}
+
+.offcanvas a:hover{
+    color: var(--secondaryColor);
+    font-size: large;
+}
+
+
+.login-button{
+    background-color: var(--primaryColor);
+    color: var(--backgroundColor);
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.login-button:hover{
+    background-color:#0d45e0;
+}
+
+nav .navbar-toggler{
+    border: none;
+    font-size: 1.2rem;
+}
+
+nav .navbar-toggler:focus .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+#footer{
+    width: 100%;
+    background-color: var(--primaryColor);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+    position: sticky;
+}
+
+
+/* Home */
+.home-block1 .image-container{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.home-block1 .text-overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 36px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.1); /* semi-transparent background */
+    padding: 10px 20px;
+    margin: 4px 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.home-block1 .text-overlay .scrolling-text {
+    display: inline-block;
+    font-size: 20px;
+    white-space: nowrap;
+    animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.home-block3{
+    display:inline-flex;
+}
+
+.home-block3 .card{
+    background-color: #b4e2c2ea;
+    width: 400px;
+    height: 300px;
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+.home-block3 .card h3{
+    color: black;
+    text-align: center;
+    padding: 2px 5px;
+    margin: 0;
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+.home-block3 .card .card-body a{
+    text-decoration: none;
+}
+
+/* Membership*/
+
+.memb-head, .memb-fee{
+    width: 80%;
+    height: 500px;
+    border-style: none;
+    border-radius: 1rem;
+    padding: 30px 20px;
+    margin: 20px 5px;
+    place-self: center;
+    box-shadow: 0 0 4px 6px hsla(0, 1%, 4%, 0.2);
+}
+
+.memb-head h1, .memb-fee h1, .memb-link h1{
+    font-weight: bold;
+    color: var(--secondaryColor);
+    margin: 10px 0;
+    place-self: center;
+}
+
+.memb-link{
+    width: 50%;
+    height: 300px;
+    border-style: none;
+    border-radius: 1rem;
+    padding: 30px 20px;
+    margin: 20px 5px;
+    place-self: center;
+    box-shadow: 0 0 4px 6px hsla(0, 1%, 4%, 0.2);
+}
+
+.memb-link a{
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: white;
+    background: var(--primaryColor);
+    text-decoration: none;
+}
+
+
+/*About */
+#about-img{
+    display: flex;
+    max-width: 100%;
+    color: blue;
+}
+
+#about-box{
+    width: 100%;
+    display: flex;
+    margin: 4px;
+}
+
+.about-box{
+    max-width: 50%;
+}
+
+.about-box fieldset{
+    padding: 1rem 0.3rem;
+    border-color: brown;
+    border-radius: 10px;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+.about-box fieldset legend{
+    padding: 3px;
+    text-align:center;
+    border: 6px;
+    border-style:double;
+    border-color: brown;
+    border-radius: 5px;
+    box-shadow: 3px 4px blueviolet;
+    text-transform: uppercase;
+}
+
+.about-box fieldset p{
+    text-indent: 1rem;
+}
+
+.member-box{
+    margin: 0.5rem 0;
+    text-align: center;
+    border-style: groove;
+    border-radius: 1rem;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+#about-box .about-rules{
+    border-style: groove;
+    border-radius: 1.5rem;
+    padding: 1.3rem 1rem;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+/* Events */
+
+.training{
+    margin: 80px 0;
+    height: 60%;
+    display: flex;
+}
+
+.training-items{
+    width: 10%;
+    padding-top: 4px;
+    margin-right: 20px;
+    border-radius: 1rem;
+    background-color: #9fe7b7e1;
+    border-style: none;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+.training-items a{
+    width: 60%;
+    padding: 2px 2px;
+    place-self: center;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: #2c3e50;
+}
+
+.training-items a:hover{
+    padding: 4px;
+    background-color: #2c3e50;
+    color:azure;
+}
+
+.training-items-infos{
+    display: flex;
+    width: 90%;
+    margin: 0;
+    padding: 5px;
+    background-color: var(--backgroundColor);
+}
+
+.training-items-infos .card{
+    margin: 40px 20px;
+    display: flex;
+    flex-direction: row;
+    border-style: none;
+    box-shadow: 0 0 4px 6px hsla(0, 1%, 4%, 0.2);
+}
+
+.training-items-infos .card-head{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.training-items-infos .card-head img{
+    margin: 10px;
+    box-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+.training-items-infos .card-head .infos{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    place-self: center;
+}
+
+
+.training-items-infos .card-head span{
+    font-weight:bold;
+    text-align: center;
+    color:var(--secondaryColor);
+}
+
+.training-items-infos .card-head a{
+    text-decoration: none;
+    padding: 3px 4px;
+    margin: 10px 0;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+    background-color: var(--secondaryColor);
+}
+
+.training-items-infos .card-head .btn{
+    color: white;
+    background-color: var(--primaryColor);
+    padding: 3px 4px;
+    border-radius: 1rem;
+    margin-bottom: 10px;
+}
+
+.training-items-infos .card-head a:hover, .training-items-infos .card-head .btn:hover{
+    font-size: large;
+    opacity: 0.8;
+}
+
+.training-items-infos .card-infos{
+    width: 60%;
+}
+.training-items-infos .card-infos .infos-head{
+    width: 98%;
+    margin-top: 10px;
+    place-items: center;
+    margin-right: 10px;
+    border-style: none;
+    border-radius: 6px;
+    box-shadow: 0 0 4px 4px hsla(0, 1%, 4%, 0.2);
+}
+
+.training-items-infos h3{
+    margin-top: 10px;
+    padding-top: 6px;
+    color: seagreen;
+    font-weight: bold;
+    text-shadow: 3px 4px 7px hsla(0, 1%, 4%, 0.2);
+}
+
+.training-items-infos .date{
+    color: var(--primaryColor);
+    font-weight: bold;
+}
+
+.training-items-infos h4{
+    color:darkblue;
+}
+
+/* Blog*/
+
+.blog-post{
+    margin: 15px 10px;
+    padding: 20px 10px;
+    border-style: none;
+    border-radius: 3px;
+    height: 500px;
+    box-shadow: 0 0 4px 6px hsla(0, 1%, 4%, 0.2);
+}
+
+.blog-post .post-head{
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    background-color: var(--secondaryColor);
+}
+
+.blog-post .post-head h3{
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.blog-post .post-head span{
+    color:black;
+}
+
+.blog-post img{
+    margin-top: 10px;
+    border-radius: 3px;
+    width: 90%;
+    height: 200px;
+}
+
+.blog-post a{
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 4px 10px;
+    margin: 4px;
+    border-radius: 3px;
+    background-color: var(--primaryColor);
+}
+
+.date{
+    font-style: italic;
+    color: gray;
+}
+
+.blog-post .list-group-item h4{
+    margin-bottom: 5px;
+}
+
+.blog-post .list-group-item p{
+    margin-bottom: 10px;
+    color: black;
+}
+
+/* Article*/
+.article{
+    margin-top: 30px;
+}
+
+.article h1{
+    place-self: center;
+    color: #2ecc71;
+    text-transform: capitalize;
+}
+
+
+/* Login  and Register*/
+.login, .register{
+    padding: 3px 4px;
+    border-radius: 1rem;
+    box-shadow: 0 0 4px 6px hsla(0, 1%, 4%, 0.2);
+    place-items: center;
+    border-style: none;
+    background-color: #40E0D0;
+}
+
+#loginForm, #registerForm{
+    place-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries pour écrans de 768px ou moins */
+@media (max-width: 768px) {
+    .container{
+        width: 95%; /* Réduire la largeur du conteneur */
+    }
+
+    header, footer{
+        padding: 20px 0; /* Augmenter le padding */
+    }
+
+    .home-block1 .image-container .text-overlay{
+
+        font-size: 24px;
+        padding: 15px 20px;
+    }
+
+    .home-block1 .image-container .scrolling-text{
+        font-size: 20px;
+    }
+
+    .home-block3{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .training{
+        width: 100%;
+        margin: 20px 4px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .training-items{
+        width: 17%;
+        margin: 0;
+        padding: 10px 3px;
+    }
+
+    .training-items-infos{
+        width: 80%;
+        margin: 0;
+    }
+
+    .training-items-infos .scrollspy-card{
+        padding: 10px 5px;
+        margin: 0;
+    }
+
+    .training-items-infos .card{
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .training-items-infos .card .card-head, .training-items-infos .card .card-infos{
+        width: 100%;
+        padding: 5px;
+    }
+
+    .login{
+        width: 50%;
+    }
 }

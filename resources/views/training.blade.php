@@ -17,7 +17,7 @@
           <div data-bs-spy="scroll" data-bs-target="#training-items" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-card" style="position: relative; height: 600px; overflow-y: scroll;" tabindex="0">
             <div id="card1" class="card">
                 <div class="card-head">
-                    <img src="/CLIENT/Assets/img/word1.jpg" alt="img" class="img-fluid">
+                    <img src="{{asset('storage/images/word1.jpg')}}" alt="img" class="img-fluid">
                     <div class="infos">
                         <span>Prix: 5000 Fcfa</span>
                         <a href="">Inscrivez-vous</a>
@@ -36,7 +36,7 @@
             </div>
             <div id="card2" class="card">
                 <div class="card-head">
-                    <img src="/CLIENT/Assets/img/devps.jpg" alt="img" class="img-fluid">
+                    <img src="{{ asset('storage/images/devps.jpg') }}" alt="img" class="img-fluid">
                     <div class="infos">
                         <span>Prix: 5000 Fcfa</span>
                         <a href="">Inscrivez-vous</a>
@@ -55,7 +55,7 @@
             </div>
             <div id="card3" class="card">
                 <div class="card-head">
-                    <img src="/CLIENT/Assets/img/twoinf.jpg" alt="img" class="img-fluid">
+                    <img src=" {{ asset('storage/images/twoinf.jpg')}}" alt="img" class="img-fluid">
                     <div class="infos">
                         <span>Prix: 10000 Fcfa</span>
                         <a href="">Inscrivez-vous</a>
@@ -74,7 +74,7 @@
             </div>
             <div id="card4" class="card">
                 <div class="card-head">
-                    <img src="/CLIENT/Assets/img/computer-room.jpg" alt="img" class="img-fluid">
+                    <img src=" {{ asset('storage/images/computer-room.jpg')}}" alt="img" class="img-fluid">
                     <div class="infos">
                         <span>Prix: 10000 Fcfa</span>
                         <a href="">Inscrivez-vous</a>
@@ -93,7 +93,7 @@
             </div>
             <div id="card5" class="card">
                 <div class="card-head">
-                    <img src="/CLIENT/Assets/img/computer-room.jpg" alt="img" class="img-fluid">
+                    <img src="{{ asset('storage/images/computer-room.jpg')}}" alt="img" class="img-fluid">
                     <div class="infos">
                         <span>Prix: 15000 Fcfa</span>
                         <a href="">Inscrivez-vous</a>

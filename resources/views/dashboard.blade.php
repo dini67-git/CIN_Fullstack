@@ -11,18 +11,20 @@
     <title>@yield('CIN')</title>
 </head>
 <body>
+<div class="dash d-flex flex-row">
     <div class="side-menu">
         <div class="brand-name">
-            <h1>Brand name</h1>
+            <h1 class="fw-bold">Brand name</h1>
         </div>
         <ul>
-            <li><i class="fa-solid fa-tachometer-alt"></i> Dashboard</li>
-            <li><i class="fa-solid fa-users"></i> Users</li>
-            <li><i class="fa-solid fa-graduation-cap"></i> Training</li>
-            <li><i class="fa-solid fa-newspaper"></i> Blog</li>
-            <li><i class="fa-solid fa-cogs"></i> Setting</li>
+            <li><i class="fa-solid fa-tachometer-alt me-3"></i> Dashboard</li>
+            <li><i class="fa-solid fa-users me-3"></i> Users</li>
+            <li><i class="fa-solid fa-graduation-cap me-3"></i> Training</li>
+            <li><i class="fa-solid fa-newspaper me-3"></i> Blog</li>
+            <li><i class="fa-solid fa-cogs me-3"></i> Setting</li>
         </ul>
     </div>
+
     <div class="dash-container">
         <div class="header">
             <div class="nav">
@@ -32,9 +34,9 @@
                 </div>
                 <div class="user">
                     <a href="#" class="btn">Add new</a>
-                    <img src="" alt="notification_img">
+                    <img src="{{asset('storage/images/notification.png')}}" alt="notification_img">
                     <div class="img-case">
-                        <img src="" alt="user_img">
+                        <img src="{{asset('storage/images/user1.jpg')}}" alt="user_img">
                     </div>
                 </div>
             </div>
@@ -47,7 +49,7 @@
                         <h3>Members</h3>
                     </div>
                     <div class="icon-case">
-                        <img src="" alt="members_img">
+                        <img class="responsive img-fluid" src="{{asset('storage/images/member.png')}}" alt="members_img">
                     </div>
                 </div>
 
@@ -57,7 +59,7 @@
                         <h3>Trainings</h3>
                     </div>
                     <div class="icon-case">
-                        <img src="" alt="training_img">
+                        <img class="responsive img-fluid" src="{{asset('storage/images/member.png')}}" alt="training_img">
                     </div>
                 </div>
                 <div class="card">
@@ -66,7 +68,7 @@
                         <h3>Blogs</h3>
                     </div>
                     <div class="icon-case">
-                        <img src="" alt="blog_img">
+                        <img class="responsive img-fluid" src="{{asset('storage/images/member.png')}}" alt="blog_img">
                     </div>
                 </div>
 
@@ -90,6 +92,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>

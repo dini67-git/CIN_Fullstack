@@ -253,10 +253,10 @@ nav .navbar-toggler:focus .btn-close:focus{
     outline: none;
 }
 
-#footer{
+.footer{
     width: 100%;
-    background-color: var(--primaryColor);
     color: white;
+    background:#2ecc71;
     padding: 20px 0;
     text-align: center;
     bottom: 0;

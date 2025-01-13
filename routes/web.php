@@ -30,3 +30,7 @@ Route::get('/about', [AboutController::class, 'getabout'])->name('about');
 Route::get('/login', [AuthController::class, 'getlogin'])->name('login');
 Route::get('/signin', [AuthController::class, 'getsignin'])->name('signin');
 Route::get('/dashboard', [DashboardController::class, 'getdashboard'])->name('dashboard');
+
+
+Route::post('/signin', [AuthController::class, 'register'])->name('signin.post');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');

@@ -42,10 +42,14 @@
             </button>
         </nav>
         @yield('content')
-        <div>
-            <p>&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</p>
-            <p>Contactez-nous : cin@gmail.com</p>
+
+        <div class="footer mt-3">
+            <div class="container-fluid clearfix d-flex">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contactez-nous : <a href="cin@gmail.com" target="_blank">cin@gmail.com</a></span>
+            </div>
         </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -1,14 +1,17 @@
 <?php
 
-use App\Http\Controllers\AboutController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MembershipController;
-use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\UsersController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TrainingsController;
+use App\Http\Controllers\MembershipController;
+
 
 
 
@@ -34,6 +37,8 @@ Route::get('/signin', [AuthController::class, 'getsignin'])->name('signin');
 Route::get('/dashboard', [DashboardController::class, 'getdashboard'])->name('dashboard');
 
 Route::get('/users', [UsersController::class, 'getusers'])->name('dash.users');
+Route::get('/trainings', [TrainingsController::class, 'gettrainings'])->name('dash.trainings');
+Route::get('/blogs', [BlogsController::class, 'getblogs'])->name('dash.blogs');
 
 
 Route::post('/signin', [AuthController::class, 'register'])->name('signin.post');

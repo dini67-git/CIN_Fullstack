@@ -4,19 +4,23 @@
 
 @section('content' )
 
-<div class="sort-wrapper">
-    <button type="button" class="btn btn-primary toolbar-item">New</button>
-    <div class="dropdown ml-lg-auto ml-3 toolbar-item">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownexport" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
-        <div class="dropdown-menu" aria-labelledby="dropdownexport">
-            <a class="dropdown-item" href="#">Export as PDF</a>
-            <a class="dropdown-item" href="#">Export as DOCX</a>
-            <a class="dropdown-item" href="#">Export as CDR</a>
+<div class="col-md-12">
+    <div class="page-header-toolbar">
+        <div class="sort-wrapper">
+            <button type="button" class="btn btn-primary toolbar-item">New</button>
+            <div class="dropdown ml-lg-auto ml-3 toolbar-item">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownexport" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownexport">
+                    <a class="dropdown-item" href="#">Export as PDF</a>
+                    <a class="dropdown-item" href="#">Export as DOCX</a>
+                    <a class="dropdown-item" href="#">Export as CDR</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="col-lg-12 stretch-card">
+<div class="col-lg-12 my-3 stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Table with contextual classes</h4>

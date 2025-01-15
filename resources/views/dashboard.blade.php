@@ -206,13 +206,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="{{ route('dash.trainings') }}">
                 <i class="menu-icon typcn typcn-th-large-outline"></i>
                 <span class="menu-title">Formations</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
+              <a class="nav-link" href="{{ route('dash.blogs') }}">
                 <i class="menu-icon typcn typcn-bell"></i>
                 <span class="menu-title">Blog</span>
               </a>

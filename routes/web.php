@@ -1,13 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MembershipController;
+use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -30,6 +32,8 @@ Route::get('/about', [AboutController::class, 'getabout'])->name('about');
 Route::get('/login', [AuthController::class, 'getlogin'])->name('login');
 Route::get('/signin', [AuthController::class, 'getsignin'])->name('signin');
 Route::get('/dashboard', [DashboardController::class, 'getdashboard'])->name('dashboard');
+
+Route::get('/users', [UsersController::class, 'getusers'])->name('dash.users');
 
 
 Route::post('/signin', [AuthController::class, 'register'])->name('signin.post');

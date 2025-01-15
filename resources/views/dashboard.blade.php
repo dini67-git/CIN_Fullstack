@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <title>Admin Dashboard</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('theme/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
@@ -14,7 +14,7 @@
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page->
-    <!-- inject:css --> -
+    <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('theme/css/shared/style.css') }}">
     <!-- endinject -->
     <!-- Layout styles -->
@@ -193,47 +193,28 @@
             </li>
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <i class="menu-icon typcn typcn-coffee"></i>
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="{{ route('dash.users') }}">
                 <i class="menu-icon typcn typcn-shopping-bag"></i>
-                <span class="menu-title">Form elements</span>
+                <span class="menu-title">Utilisateurs</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/charts/chartjs.html">
                 <i class="menu-icon typcn typcn-th-large-outline"></i>
-                <span class="menu-title">Charts</span>
+                <span class="menu-title">Formations</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/tables/basic-table.html">
                 <i class="menu-icon typcn typcn-bell"></i>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Blog</span>
               </a>
             </li>
             <li class="nav-item">
@@ -308,7 +289,6 @@
                         <a class="dropdown-item" href="#">Last Year</a>
                       </div>
                     </div>
-                    <a href="#" class="advanced-link toolbar-item">Advanced Options</a>
                   </div>
                   <div class="sort-wrapper">
                     <button type="button" class="btn btn-primary toolbar-item">New</button>

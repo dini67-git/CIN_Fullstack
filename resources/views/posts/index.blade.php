@@ -19,42 +19,52 @@
             </div>
         </div>
 
-        <h1 class="m-4">Tous les articles</h1>
-
-        <!-- Le tableau pour lister les articles/posts -->
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th colspan="2">Opérations</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- On parcourt la collection de Post -->
-                @foreach ($posts as $post)
-                <tr>
-                    <td>
-                        <!-- Lien pour afficher un Post : "posts.show" -->
-                        <a href="{{ route('posts.show', $post) }}" title="Lire l'article">{{ $post->title }}</a>
-                    </td>
-                    <td>
-                        <!-- Lien pour modifier un Post : "posts.edit" -->
-                        <a href="{{ route('posts.edit', $post) }}" title="Modifier l'article">Modifier</a>
-                    </td>
-                    <td>
-                        <!-- Formulaire pour supprimer un Post : "posts.destroy" -->
-                        <form method="POST" action="{{ route('posts.destroy', $post) }}">
-                            <!-- CSRF token -->
-                            @csrf
-                            <!-- <input type="hidden" name="_method" value="DELETE"> -->
-                            @method("DELETE")
-                            <input type="submit" value="x Supprimer">
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="col-lg-12 grid-margin stretch-card m-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tous les articles</h4>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th> Titre </th>
+                                <th colspan="2"> Opérations </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- On parcourt la collection de Post -->
+                            @foreach ($posts as $post)
+                            <tr>
+                                <td class="py-1">
+                                    <!-- Lien pour afficher un Post : "posts.show" -->
+                                    <a href="{{ route('posts.show', $post) }}" title="Lire l'article">{{ $post->title }}</a>
+                                </td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td> </td>
+                                <td>
+                                    <!-- Lien pour modifier un Post : "posts.edit" -->
+                                    <a href="{{ route('posts.edit', $post) }}" title="Modifier l'article">Modifier</a>
+                                </td>
+                                <td>
+                                    <!-- Formulaire pour supprimer un Post : "posts.destroy" -->
+                                    <form method="POST" action="{{ route('posts.destroy', $post) }}">
+                                        <!-- CSRF token -->
+                                        @csrf
+                                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                                        @method("DELETE")
+                                        <input type="submit" value="Supprimer">
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

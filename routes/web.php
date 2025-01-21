@@ -11,10 +11,7 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TrainingsController;
 use App\Http\Controllers\MembershipController;
-
-
-
-
+use App\Http\Controllers\PostController;
 
 /*
 |-----------------------------------------------------------------------
@@ -43,3 +40,5 @@ Route::get('/blogs', [BlogsController::class, 'getblogs'])->name('dash.blogs');
 
 Route::post('/signin', [AuthController::class, 'register'])->name('signin.post');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+
+Route::resource('posts', PostController::class);

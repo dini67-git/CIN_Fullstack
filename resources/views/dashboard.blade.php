@@ -212,7 +212,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('dash.blogs') }}">
+              <a class="nav-link" href="{{ route('posts.index') }}">
                 <i class="menu-icon typcn typcn-bell"></i>
                 <span class="menu-title">Blog</span>
               </a>

@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="col-md-12">
-    <div class="">
+    <div>
         <div class="sort-wrapper">
             <!-- Lien pour créer un nouvel article : "posts.create" -->
             <a class="btn btn-primary toolbar-item" href="{{ route('posts.create') }}" title="Créer un article"> New </a>

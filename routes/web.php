@@ -26,7 +26,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [HomeController::class, 'gethome'])->name('home');
 Route::get('/training', [TrainingController::class, 'gettraining'])->name('training');
-Route::get('/blog', [BlogController::class, 'getblog'])->name('blog');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/membership', [MembershipController::class, 'getmembership'])->name('membership');
 Route::get('/about', [AboutController::class, 'getabout'])->name('about');
 Route::get('/login', [AuthController::class, 'getlogin'])->name('login');
@@ -35,7 +35,7 @@ Route::get('/dashboard', [DashboardController::class, 'getdashboard'])->name('da
 
 Route::get('/users', [UsersController::class, 'getusers'])->name('dash.users');
 Route::get('/trainings', [TrainingsController::class, 'gettrainings'])->name('dash.trainings');
-Route::get('/blogs', [BlogsController::class, 'getblogs'])->name('dash.blogs');
+Route::get('/blogs', [BlogController::class, 'getblogs'])->name('dash.blogs');
 
 
 Route::post('/signin', [AuthController::class, 'register'])->name('signin.post');

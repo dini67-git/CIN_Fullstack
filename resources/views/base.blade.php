@@ -30,7 +30,7 @@
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item"><a class="nav-link" href=" {{ route('home')}}">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('training')}}">Formations</a></li>
-                        <li class="nav-item"><a class="nav-link" href=" {{ route('blog')}}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href=" {{ route('blog.index')}}">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('membership')}}">Adhésion</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('about')}}">À propos</a></li>
                     </ul>

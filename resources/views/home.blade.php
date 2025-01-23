@@ -7,7 +7,7 @@
     <div class="image-container">
       <img src="{{ asset('storage/images/techn.jpg') }}" alt="img techn" class="img-fluid img-responsive" style="opacity: 0.8; max-height: 400px; width: 100%;">
       <div class="text-overlay">
-        <h1 class="m-3">Club les Intéllos du Numérique</h1>
+        <h1 class="m-3 fw-bold">Club les Intéllos du Numérique</h1>
         <p class="scrolling-text">Informatique, le chemin du monde nouveau.</p>
       </div>
     </div>

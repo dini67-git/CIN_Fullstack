@@ -48,7 +48,7 @@
 
                     <!-- Le message d'erreur pour "title" -->
                     @error("title")
-                <div>{{ $message }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 </p>
 
@@ -66,7 +66,7 @@
 
                     <!-- Le message d'erreur pour "picture" -->
                     @error("picture")
-                <div>{{ $message }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 </p>
                 <p>
@@ -77,7 +77,7 @@
 
                     <!-- Le message d'erreur pour "content" -->
                     @error("content")
-                <div>{{ $message }}</div>
+                <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 </p>
 

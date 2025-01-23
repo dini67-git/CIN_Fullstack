@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="col-md-12">
-    <div class="page-header-toolbar">
+    <div class="">
         <div class="sort-wrapper">
             <!-- Lien pour créer un nouvel article : "posts.create" -->
             <a class="btn btn-primary toolbar-item" href="{{ route('posts.create') }}" title="Créer un article"> New </a>
@@ -19,7 +19,9 @@
             </div>
         </div>
 
-        <div class="col-lg-12 grid-margin stretch-card m-3">
+        </br>
+
+        <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Tous les articles</h4>

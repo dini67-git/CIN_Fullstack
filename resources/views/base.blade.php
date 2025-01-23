@@ -10,9 +10,9 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
         <title>@yield('CIN')</title>
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="d-flex justify-content-center pt-2">
+<body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid d-flex flex-column flex-grow-1">
+        <div class="d-flex justify-content-center pt-2" style="color:azure; background:mediumseagreen">
             <h1 class="fw-bold">Université <img id="unz" src="{{ asset('storage/images/logo-unz.png') }}" alt="UNZ" class="img-fluid img-circle d-flpx-4" style="max-width: 60px;"> NORBERT ZONGO</h1>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-navbar">
@@ -34,19 +34,22 @@
                         <li class="nav-item"><a class="nav-link" href=" {{ route('membership')}}">Adhésion</a></li>
                         <li class="nav-item"><a class="nav-link" href=" {{ route('about')}}">À propos</a></li>
                     </ul>
+                    <a href=" {{ route('login')}}" class="login-button" style="color:azure">Se connecter</a>
                 </div>
             </div>
-            <a href=" {{ route('login')}}" class="login-button">Se connecter</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle-navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-        @yield('content')
 
-        <div class="footer mt-3">
-            <div class="container-fluid clearfix d-flex">
+        <div class="flex-grow-1 mt-3">
+        @yield('content')
+        </div>
+
+        <div class="footer  mt-auto" style="color:azure; background:mediumseagreen">
+            <div class="container-fluid clearfix d-flex" style="justify-content:space-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contactez-nous : <a href="cin@gmail.com" target="_blank">cin@gmail.com</a></span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contactez-nous : <a href="cin@gmail.com" style="color:azure">cin@gmail.com</a></span>
             </div>
         </div>
 

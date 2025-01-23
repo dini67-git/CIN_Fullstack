@@ -42,7 +42,7 @@ class PostController extends Controller
         ]);
 
         // 2. On upload l'image dans "/storage/app/public/posts"
-        $chemin_image = $request->picture->store('posts');
+        $chemin_image = $request->picture->store('posts', 'public');
 
         // 3. On enregistre les informations du Post
         Post::create([
@@ -98,9 +98,9 @@ class PostController extends Controller
         if($request->has('picture')){
 
             // On supprime l'ancienne image
-            Storage::delete($post->picture);
+            Storage::delete('public/posts/'.$post->picture);
 
-            $chemin_image = $request->picture->store('posts');
+            $chemin_image = $request->picture->store('posts', 'public');
         }
 
         // 3. On met à jour les informations du Post
@@ -120,7 +120,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         // On supprime l'image existant
-        Storage::delete($post->picture);
+        Storage::delete('public/posts/'.$post->picture);
 
         // on supprime les informations du $post de la table "posts"
         $post->delete();

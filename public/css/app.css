@@ -129,6 +129,22 @@ nav .navbar-toggler:focus .btn-close:focus{
     outline: none;
 }
 
+.text-overlay{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.1); /* semi-transparent background */
+    margin: 3px 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-icon {
+    font-size: 12px; /* Diminuer la taille de l'icône */
+    color:#3498db; /* Changer la couleur de l'icône */
+  }
+
 .footer{
     width: 100%;
     color: white;
@@ -160,7 +176,7 @@ nav .navbar-toggler:focus .btn-close:focus{
     overflow: hidden;
 }
 
-.home-block1 .text-overlay .scrolling-text {
+.text-overlay .scrolling-text {
     display: inline-block;
     font-size: 20px;
     white-space: nowrap;

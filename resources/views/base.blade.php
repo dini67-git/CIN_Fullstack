@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +9,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-        <title>@yield('CIN')</title>
+    <title>@yield('CIN')</title>
 </head>
+
 <body class="d-flex flex-column min-vh-100">
     <div class="container-fluid d-flex flex-column flex-grow-1">
         <div class="d-flex justify-content-center pt-2" style="color:azure; background:mediumseagreen">
             <h1 class="fw-bold">Université <img id="unz" src="{{ asset('storage/images/logo-unz.png') }}" alt="UNZ" class="img-fluid img-circle d-flpx-4" style="max-width: 60px;"> NORBERT ZONGO</h1>
         </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-navbar">
-            <a class="navbar-brand fw-bold" href=" {{ route('home')}}">
-                <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="CIN" class="img-fluid" style="max-width: 50px;"> CIN
+            <a class="navbar-brand fw-bold d-flex flex-row" href=" {{ route('home')}}">
+                <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="cin_icon" class="img-fluid" style="max-width: 50px;">
+                <span class="align-self-center fs-2">CIN</span>
+                <div class="text-overlay w-50" >
+                    <h1 class="scrolling-text">
+                    <i class="fas fa-star custom-icon"></i>
+                    <i class="fas fa-star custom-icon"></i>
+                    <i class="fas fa-star custom-icon"></i>
+                    <span class="mx-3">Club  les Intéllos du Numérique</span>
+                    <i class="fas fa-star custom-icon"></i>
+                    <i class="fas fa-star custom-icon"></i>
+                    <i class="fas fa-star custom-icon"></i>
+                    </h1>
+                </div>
             </a>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title d-flex" id="navbarLabel" style="color: white;">
-                    <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="CIN" class="img-fluid" style="max-width: 50px;">Club les Intéllos du Numérique
+                        <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="CIN" class="img-fluid" style="max-width: 50px;">Club les Intéllos du Numérique
                     </h5>
                     <button type="button" class="btn-close bg-primary" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
@@ -43,13 +57,13 @@
         </nav>
 
         <div class="flex-grow-1 mt-3">
-        @yield('content')
+            @yield('content')
         </div>
 
         <div class="footer  mt-auto" style="color:azure; background:mediumseagreen">
             <div class="container-fluid clearfix d-flex" style="justify-content:space-between">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contactez-nous : <a href="cin@gmail.com" style="color:azure">cin@gmail.com</a></span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contactez-nous : <a href="cin@gmail.com" style="color:azure">cin@gmail.com</a></span>
             </div>
         </div>
 
@@ -60,4 +74,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

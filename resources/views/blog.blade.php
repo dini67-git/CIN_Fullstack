@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <h1 class="my-4 p-3 bg-primary text-white fw-bold text-center">Tous les Articles</h1>
             @if($posts->count())
-                <div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-height: 500px; overflow-y: auto;">
+                <div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-height: 600px; overflow-y: auto;">
                     @foreach($posts as $post)
                         <div class="card p-2">
                             <a href="{{ route('posts.show', $post) }}" class="list-group-item list-group-item-action">
@@ -29,7 +29,7 @@
 
         <!-- Colonne pour les événements passés -->
         <div class="col-md-4">
-            <h2>Événements Passés</h2>
+            <h2 class="mb-4 p-3 text-white fw-bold text-center" style="background:seagreen">Événements Passés</h2>
             <ul class="list-group">
                 <li class="list-group-item">
                     <h4>Événement 1</h4>

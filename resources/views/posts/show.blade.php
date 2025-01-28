@@ -3,10 +3,10 @@
 @section('title', '$post->title')
 
 @section('content')
-<div class="container mt-5 w-50">
+<div class="container-fluid mt-5">
     <h1 class="mb-4">{{ $post->title }}</h1>
-    <div class="w-50">
-        <img src="{{ asset('storage/'.$post->picture) }}" alt="Image de couverture" style="max-width: 100vw;">
+    <div class="">
+        <img class="img-fluid img-responsive" src="{{ asset('storage/'.$post->picture) }}" alt="Image de couverture" style="max-width: 100vw;">
 
         <div class="mt-3">{{ $post->content }}</div>
     </div>

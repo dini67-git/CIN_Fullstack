@@ -51,8 +51,8 @@
 
                         <!-- Le message d'erreur pour "title" -->
                         @error("title")
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     </p>
 
                     <!-- S'il y a une image $post->picture, on l'affiche -->

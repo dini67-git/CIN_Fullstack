@@ -9,9 +9,13 @@ use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FormationController;
+use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\TrainingsController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\PostController;
+use App\Models\Formation;
+use App\Models\Inscription;
 
 /*
 |-----------------------------------------------------------------------
@@ -25,7 +29,7 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', [HomeController::class, 'gethome'])->name('home');
-Route::get('/training', [TrainingController::class, 'gettraining'])->name('training');
+Route::get('/training', [TrainingController::class, 'index'])->name('training.index');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/membership', [MembershipController::class, 'getmembership'])->name('membership');
 Route::get('/about', [AboutController::class, 'getabout'])->name('about');
@@ -42,3 +46,5 @@ Route::post('/signin', [AuthController::class, 'register'])->name('signin.post')
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
 Route::resource('posts', PostController::class);
+Route::resource('formations', FormationController::class);
+Route::resource('inscription', InscriptionController::class);

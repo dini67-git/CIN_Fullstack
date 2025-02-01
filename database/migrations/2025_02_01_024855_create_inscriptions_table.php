@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('telephone')->unique();
             $table->string('email')->unique();
-            $table->decimal('montant_payé', 8, 2);
+            $table->decimal('montant', 8, 2);
             $table->enum('status', ['pending', 'paid'])->default('pending');
             $table->timestamps();
 

@@ -216,13 +216,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dash.trainings') }}">
+                        <a class="nav-link" href="{{ route('formations.index') }}">
                             <i class="menu-icon typcn typcn-th-large-outline"></i>
                             <span class="menu-title">Formations</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dash.blogs') }}">
+                        <a class="nav-link" href="{{ route('posts.index') }}">
                             <i class="menu-icon typcn typcn-bell"></i>
                             <span class="menu-title">Blog</span>
                         </a>

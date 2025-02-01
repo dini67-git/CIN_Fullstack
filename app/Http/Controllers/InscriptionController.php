@@ -46,7 +46,7 @@ class InscriptionController extends Controller
         ->first();
 
         // Calcul du montant payé (60% pour membres, sinon 100%).
-        $montantPaye = ($membre) ? ($formation->prix * 0.6) : $formation->prix;
+        $montant = ($membre) ? ($formation->prix * 0.6) : $formation->prix;
 
         // Enregistrement de l'inscription avec statut 'pending'.
         Inscription::create([
@@ -55,7 +55,7 @@ class InscriptionController extends Controller
             'prenom' => ($membre) ? $membre->lastname : $request->prenom,
             'email' => $request->email,
             'telephone' => $request->telephone,
-            'montant_paye' => $montantPaye,
+            'montant' => $montant,
             'status' => 'pending',
         ]);
 

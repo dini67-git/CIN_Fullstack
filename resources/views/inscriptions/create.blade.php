@@ -1,31 +1,43 @@
-@extends('layouts.app')
+@extends('base')
+
+@section('title', 'Inscription')
 
 @section('content')
-<h1>Inscription à la formation : {{ $formation->titre }}</h1>
 
-<form action="{{ route('inscriptions.store', $formation) }}" method="POST">
-    @csrf
+<div class="container mt-5">
+    <h1>Inscrivez-vous à {{ $formation->titre }}</h1> <!-- Assurez-vous que c'est bien $formation->titre -->
 
-    <div>
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="{{ route('formations.inscription.store', $formation) }}" method="POST">
+        @csrf
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" required>
-    </div>
-    
-    <div>
+
         <label for="prenom">Prénom :</label>
         <input type="text" name="prenom" id="prenom" required>
-    </div>
 
-    <div>
         <label for="email">Email :</label>
         <input type="email" name="email" id="email" required>
-    </div>
 
-    <div>
-        <label for="telephone">Numéro de téléphone :</label>
+        <label for="telephone">Téléphone :</label>
         <input type="text" name="telephone" id="telephone" required>
-    </div>
 
-    <button type="submit">S'inscrire</button>
-</form>
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <!-- Bouton Retour -->
+    <div class="mt-3">
+        <a href="{{ route('formations.show', $formation) }}">Retour à la formation</a>
+    </div>
+</div>
+
 @endsection

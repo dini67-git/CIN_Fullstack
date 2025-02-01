@@ -9,7 +9,7 @@ class Inscription extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['formation_id', 'nom', 'prenom', 'telephone', 'email', 'montant_paye', 'status'];
+    protected $fillable = ['formation_id', 'nom', 'prenom', 'telephone', 'email', 'montant', 'status'];
 
     public function formation(){
         return $this->belongsTo(Formation::class);

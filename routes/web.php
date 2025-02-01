@@ -48,3 +48,4 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::resource('posts', PostController::class);
 Route::resource('formations', FormationController::class);
 Route::resource('inscription', InscriptionController::class);
+Route::resource('formations.inscription', InscriptionController::class);

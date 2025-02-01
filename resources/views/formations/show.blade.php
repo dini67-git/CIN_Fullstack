@@ -1,28 +1,41 @@
 @extends('base')
 
-@section('title', '$formation->title')
+@section('title', $formation->titre)
 
 @section('content')
-<div class="container">
-    <h1>Détails de la Formation : {{ $formation->titre }}</h1>
+<div class="container mt-3">
+    <!-- Section Image -->
+    <div class="card shadow-sm rounded mb-2">
+        @if ($formation->image)
+            <!-- Ajout des attributs width et height pour redimensionner l'image -->
+            <img src="{{ asset('storage/' . $formation->image) }}" alt="{{ $formation->titre }}" width="100%" height="400">
+        @else
+            <div class="no-image text-center py-5">Pas d'image disponible</div>
+        @endif
+    </div>
 
-    <!-- Détails de la formation -->
-    @if ($formation->image)
-        <p><strong>Image :</strong></p>
-        <img src="{{ asset('storage/' . $formation->image) }}" alt="{{ $formation->titre }}" style="width: 300px; height: auto;">
-    @else
-        Pas d'image disponible.
-    @endif
+    <!-- Section Titre et Détails -->
+    <div class="card shadow-sm rounded p-4 mb-2">
+        <h1 class="text-center text-primary">{{ $formation->titre }}</h1>
+        <p class="text-muted text-center">{{ \Carbon\Carbon::parse($formation->date_debut)->format('d/m/Y') }} - {{ \Carbon\Carbon::parse($formation->date_fin)->format('d/m/Y') }}</p>
+        <p class="text-center"><strong>Prix :</strong> {{ number_format($formation->prix, 2) }} €</p>
+    </div>
 
-    <p><strong>Prix :</strong> {{ number_format($formation->prix, 2) }} €</p>
-    <p><strong>Date de Début :</strong> {{ $formation->date_debut }}</p>
-    <p><strong>Date de Fin :</strong> {{ $formation->date_fin }}</p>
-    <p><strong>Description :</strong> {{ $formation->description }}</p>
+    <!-- Section Description -->
+    <div class="card shadow-sm rounded p-4 mb-2">
+        <h2>Description</h2>
+        <p>{{ $formation->description }}</p>
+    </div>
 
+    <!-- Section Actions -->
+    <div class="card shadow-sm rounded p-4 text-center">
+        <a href="{{ route('formations.inscription.create', $formation) }}" class="btn btn-success btn-lg mx-2">S'inscrire</a>
+        <button class="btn btn-info btn-lg mx-2">Envoyer un mail</button>
+    </div>
 
-
-
-    <!-- Retour -->
-    <a href="{{ route('formations.index') }}" class="btn btn-secondary mt-3">Retour à la Liste des Formations</a>
+    <!-- Bouton Retour -->
+    <div class="text-center mt-3">
+        <a href="{{ route('formations.index') }}" class="btn btn-secondary">Retour à la liste des formations</a>
+    </div>
 </div>
 @endsection

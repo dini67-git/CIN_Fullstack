@@ -221,6 +221,14 @@
                             <span class="menu-title">Formations</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('inscription.index') }}">
+                            <i class="menu-icon typcn typcn-bell"></i>
+                            <span class="menu-title">Inscriptions</span>
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('posts.index') }}">
                             <i class="menu-icon typcn typcn-bell"></i>

@@ -218,9 +218,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/icons/font-awesome.html">
+              <a class="nav-link" href="{{ route('inscription.index') }}">
                 <i class="menu-icon typcn typcn-user-outline"></i>
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">Inscriptions</span>
               </a>
             </li>
             <li class="nav-item">

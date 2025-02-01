@@ -52,12 +52,10 @@
                                 </td>
                                 <td>
                                     <!-- Formulaire pour supprimer un Post : "posts.destroy" -->
-                                    <form method="POST" action="{{ route('posts.destroy', $post) }}">
-                                        <!-- CSRF token -->
+                                    <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display:inline;">
                                         @csrf
-                                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
-                                        @method("DELETE")
-                                        <input type="submit" value="Supprimer">
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce post ?')">Supprimer</button>
                                     </form>
                                 </td>
                             </tr>

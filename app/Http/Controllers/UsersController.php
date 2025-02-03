@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function getusers(){
-        return view('dash.users');
+        return view('users.users');
     }
 }

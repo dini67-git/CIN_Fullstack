@@ -1,0 +1,135 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Requests\SigninRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+class UserController extends Controller
+{
+
+    // Middleware pour protéger certaines routes
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['create', 'store', 'loginForm', 'login']);
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+        return view('users.edit');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(SigninRequest $request)
+    {
+         // Les données sont déjà validées à ce stade
+         $validatedData = $request->validated();
+         $validatedData['password'] = bcrypt($validatedData['password']);
+         // Créer l'utilisateur
+         User::create($validatedData);
+
+         return redirect()->route('login')->with('success', 'Inscription réussie, veuillez vous connecter !');
+    }
+
+     // Affiche le formulaire de connexion
+     public function loginForm()
+     {
+         return view('users.login'); // Vue pour la connexion
+     }
+
+    public function login(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            return redirect()->intended('/')->with('success', 'Vous êtes connecté !');
+        }
+
+        return back()->withErrors([
+            'email' => 'Les informations fournies ne correspondent pas.',
+        ]);
+    }
+
+     // Gère la déconnexion de l'utilisateur
+     public function logout()
+     {
+         Auth::logout();
+         return redirect()->route('login')->with('success', 'Vous êtes déconnecté.');
+     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(User $user)
+    {
+        //
+        return view('users.show', compact('user'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(User $user)
+    {
+        //
+        return view('users.edit', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, User $user)
+    {
+        $validatedData = $request->validate([
+            'firstname' => 'required|string|max:40',
+            'lastname' => 'required|string|max:40',
+            'email' => 'required|email|unique:users,email,{$user-id}',
+            'password' => 'nullable|string|min:8|confirmed',
+            'sexe' => 'required|in:Masculin,Feminin',
+            'filiere' => 'required',
+            'birthday' => 'required|date',
+            'telephone' => 'required|string|min:8|max:15|unique:users,telephone',
+        ]);
+
+        if (!empty($validatedData['password'])) {
+            $validatedData['password'] = Hash::make($validatedData['password']);
+        } else {
+            unset($validatedData['password']);
+        }
+
+        $user->update($validatedData);
+
+        return redirect()->route('users.index')->with('success', "L'utilisateur a été mis à jour.");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(User $user)
+    {
+        //
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', "L'utilisateur a été supprimé.");
+    }
+}

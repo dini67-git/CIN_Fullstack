@@ -10,7 +10,7 @@ use App\Models\User;
 class AuthController extends Controller
 {
     public function getlogin(){
-        return view('login');
+        return view('users.login');
     }
 
     public function getsignin(){

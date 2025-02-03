@@ -7,8 +7,7 @@
 <div class="col-md-12">
     <div>
         <div class="sort-wrapper">
-            <!-- Lien pour créer un nouvel article : "posts.create" -->
-            <a class="btn btn-primary toolbar-item" href="{{ route('inscription.create') }}" title="Faire une inscription"> New </a>
+            <a class="btn btn-primary toolbar-item" href="{{ route('formations.show', $formations) }}" title="Faire une inscription"> New </a>
             <div class="dropdown ml-lg-auto ml-3 toolbar-item">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownexport" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownexport">
@@ -40,41 +39,58 @@
 
                     @foreach ($formations as $formation)
                     <h5>{{ $formation->titre }}</h5> <!-- Titre de la formation -->
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nom</th>
-                                <th>Prénom</th>
-                                <th>Email</th>
-                                <th>Téléphone</th>
-                                <th>Montant</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if ($formation->inscriptions->isEmpty())
-                            <!-- Si aucune inscription pour cette formation -->
-                            <tr>
-                                <td colspan="7">Aucune inscription pour cette formation.</td>
-                            </tr>
-                            @else
-                            @foreach ($formation->inscriptions as $inscription)
-                            <!-- Afficher chaque inscription -->
-                            <tr>
-                                <td>{{ $inscription->id }}</td>
-                                <td>{{ $inscription->nom }}</td>
-                                <td>{{ $inscription->prenom }}</td>
-                                <td>{{ $inscription->email }}</td>
-                                <td>{{ $inscription->telephone }}</td>
-                                <td>{{ number_format($inscription->montant, 2) }} €</td> <!-- Formatage du montant -->
-                                <td>{{ $inscription->status }}</td>
-                            </tr>
-                            @endforeach
-                            @endif
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Email</th>
+                                    <th>Téléphone</th>
+                                    <th>Montant</th>
+                                    <th>Status</th>
+                                    <th>Actions</th> <!-- Colonne pour les actions -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if ($formation->inscriptions->isEmpty())
+                                <!-- Si aucune inscription pour cette formation -->
+                                <tr>
+                                    <td colspan="8">Aucune inscription pour cette formation.</td> <!-- Ajuster ici le colspan -->
+                                </tr>
+                                @else
+                                @foreach ($formation->inscriptions as $inscription)
+                                <!-- Afficher chaque inscription -->
+                                <tr>
+                                    <td>{{ $inscription->id }}</td>
+                                    <td>{{ $inscription->nom }}</td>
+                                    <td>{{ $inscription->prenom }}</td>
+                                    <td>{{ $inscription->email }}</td>
+                                    <td>{{ $inscription->telephone }}</td>
+                                    <td>{{ number_format($inscription->montant, 2) }} €</td> <!-- Formatage du montant -->
+                                    <td>{{ $inscription->status }}</td>
 
+                                    <!-- Actions : Modifier et Supprimer -->
+                                    <td>
+                                        <!-- Bouton Modifier -->
+                                        <a href="{{ route('inscription.edit', $inscription->id) }}" class="btn btn-success btn-sm">Modifier</a>
+
+                                        <!-- Formulaire pour supprimer l'inscription -->
+                                        <form action="{{ route('inscription.destroy', $inscription->id) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette inscription ?');">Supprimer</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                                @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+
+                    </div>
                     <!-- Séparation entre les formations -->
                     <hr />
                     @endforeach

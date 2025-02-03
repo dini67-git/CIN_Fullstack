@@ -20,7 +20,11 @@
         </div>
 
         </br>
-
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">

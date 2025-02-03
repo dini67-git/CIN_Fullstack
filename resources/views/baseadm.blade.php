@@ -210,7 +210,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dash.users') }}">
+                        <a class="nav-link" href="{{ route('users.index') }}">
                             <i class="menu-icon typcn typcn-shopping-bag"></i>
                             <span class="menu-title">Utilisateurs</span>
                         </a>

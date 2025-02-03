@@ -200,7 +200,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('dash.users') }}">
+              <a class="nav-link" href="{{ route('users.index') }}">
                 <i class="menu-icon typcn typcn-shopping-bag"></i>
                 <span class="menu-title">Utilisateurs</span>
               </a>
@@ -212,17 +212,18 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('posts.index') }}">
-                <i class="menu-icon typcn typcn-bell"></i>
-                <span class="menu-title">Blog</span>
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{{ route('inscription.index') }}">
                 <i class="menu-icon typcn typcn-user-outline"></i>
                 <span class="menu-title">Inscriptions</span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('posts.index') }}">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Blog</span>
+              </a>
+            </li>
+
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                 <i class="menu-icon typcn typcn-document-add"></i>

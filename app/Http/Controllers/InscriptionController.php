@@ -89,7 +89,11 @@ class InscriptionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //Récuperer l'inscription par son ID
+        $inscription = Inscription::findOrFail($id);
+
+        // Retourner la vue avec l'inscription à modifier
+        return view('inscriptions.edit', compact('inscription'));
     }
 
     /**
@@ -97,7 +101,28 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validation des données du formulaire
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'telephone' => 'required|string|max:15',
+            // Ajoutez d'autres règles de validation si nécessaire
+        ]);
+
+        // Récupérer l'inscription par son ID
+        $inscription = Inscription::findOrFail($id);
+
+        // Mettre à jour les informations de l'inscription
+        $inscription->update([
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'email' => $request->email,
+            'telephone' => $request->telephone,
+            // Ajoutez d'autres champs à mettre à jour si nécessaire
+        ]);
+
+        return redirect()->route('inscription.index')->with('success', "Inscription mise à jour avec succès !");
     }
 
     /**
@@ -105,6 +130,10 @@ class InscriptionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $inscription = Inscription::findOrFail($id);
+
+        $inscription->delete();
+
+        return redirect()->route('inscription.index')->with('success', "Inscription supprimée avec succès !");
     }
 }

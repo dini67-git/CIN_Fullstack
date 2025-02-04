@@ -48,7 +48,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function inscriptions(){
+    public function inscriptions()
+    {
         return $this->hasMany(Inscription::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
     }
 }

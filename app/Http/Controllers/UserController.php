@@ -12,7 +12,7 @@ class UserController extends Controller
 {
 
     // Middleware pour protéger certaines routes
-    public function __construct()
+   /*public function __construct()
     {
         $this->middleware('auth')->except(['create', 'store', 'loginForm', 'login']);
     }
@@ -80,9 +80,11 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
+        $user = User::findOrFail($id); // Récupère l'utilisateur par son ID ou renvoie une erreur 404 s'il n'existe pas
+
         return view('users.show', compact('user'));
     }
 

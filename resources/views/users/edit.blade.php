@@ -1,4 +1,4 @@
-@extends('base')
+@extends('baseauth')
 
 @section('title', 'signin')
 
@@ -7,16 +7,25 @@
     <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
       <div class="row w-100">
         <div class="col-lg-6 mx-auto">
-          <h2 class="text-center mb-4">Inscription</h2>
           <div class="auto-form-wrapper">
-            <form action="{{ route('users.edit') }}" method="POST" class="form-sample">
+
+          <h1>{{ isset($user) ? 'Modifier l\'utilisateur' : 'Faire une nouvelle inscription' }}</h1>
+
+            <form action="{{ isset($user) ? route('users.update', $user) : route('users.store')}}"
+             method="POST" enctype="multipart/form-data" class="form-sample">
                 @csrf
+
+                @csrf
+                @if (isset($user))
+                @method('PUT') <!-- Méthode PUT pour la mise à jour -->
+                @endif
+
                 <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Nom</label>
                         <div class="col-sm-9">
-                          <input type="text" name="firstname" class="form-control" value="{{ old('nom') }}"/>
+                          <input type="text" name="firstname" class="form-control" value="{{ old('nom', $user->firstname ?? '') }}"/>
                           @error('firstname')
                             <div class="text-danger">{{ $message }}</div>
                           @enderror
@@ -27,7 +36,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Prénom</label>
                         <div class="col-sm-9">
-                          <input type="text" name="lastname" class="form-control" value="{{ old('prénom') }}" />
+                          <input type="text" name="lastname" class="form-control" value="{{ old('prénom', $user->lastname ?? '') }}" />
                           @error('lastname'
                           )
                             <div class="text-danger">{{ $message }}</div>

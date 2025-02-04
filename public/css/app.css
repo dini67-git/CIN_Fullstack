@@ -87,10 +87,10 @@ li{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionnel : ajoute une ombre pour plus de style */
 }
 
-.offcanvas {
-    background-color: #070435;
+/*.offcanvas {
+    background-color:midnightblue;
 }
-
+*/
 .offcanvas img{
     margin-right: 6px;
 }
@@ -128,6 +128,7 @@ nav .navbar-toggler:focus .btn-close:focus{
     box-shadow: none;
     outline: none;
 }
+
 
 .text-overlay{
     position: absolute;

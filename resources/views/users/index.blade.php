@@ -35,6 +35,7 @@
                             <th>Sexe</th>
                             <th>Téléphone</th>
                             <th>Email</th>
+                            <th>Rôle</th>
                             <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
                         </tr>
                     </thead>
@@ -47,6 +48,7 @@
                             <td>{{ $user->sexe }}</td>
                             <td>{{ $user->telephone }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
                             <td>
                                 <!-- Boutons d'action -->
                                 <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">Voir</a> <!-- Voir -->

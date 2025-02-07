@@ -19,6 +19,9 @@
 
     <form action="{{ route('formations.inscription.store', $formation) }}" method="POST">
         @csrf
+
+        <input type="hidden" name="admin_inscription" value="{{ Auth::check() && Auth::user()->isAdmin() ? '1' : '0' }}">
+        
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" required>
 
@@ -35,9 +38,13 @@
     </form>
 
     <!-- Bouton Retour -->
+    @if (Auth::user()->isAdmin())
     <div class="mt-3">
         <a href="{{ route('formations.show', $formation) }}">Retour à la formation</a>
     </div>
+    @else
+
+    @endif
 </div>
 
 @endsection

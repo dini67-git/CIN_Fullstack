@@ -72,8 +72,13 @@ class InscriptionController extends Controller
             'montant' => $montant,
             'status' => 'Non payé',
         ]);
-
-        return redirect()->route('formations.show', $formation)->with('success', "Inscription réussie !");
+        if ($request->input('admin_inscription') == '1') {
+            // Si c'est un admin qui a créé l'inscription
+            return redirect()->route('formations.show', $formation)->with('success', 'Inscription créée par l\'admin avec succès !');
+        } else {
+            // Si c'est un utilisateur lambda qui s'est inscrit
+            return redirect()->route('formations.show', $formation)->with('success', 'Inscription réussie !');
+        }
     }
 
     /**

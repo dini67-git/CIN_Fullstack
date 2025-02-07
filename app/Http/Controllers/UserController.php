@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SigninRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
 
     // Middleware pour protéger certaines routes
-   /*public function __construct()
+    public function __construct()
     {
         $this->middleware('auth')->except(['create', 'store', 'loginForm', 'login']);
     }
@@ -40,42 +41,56 @@ class UserController extends Controller
      */
     public function store(SigninRequest $request)
     {
-         // Les données sont déjà validées à ce stade
-         $validatedData = $request->validated();
-         $validatedData['password'] = bcrypt($validatedData['password']);
-         // Créer l'utilisateur
-         User::create($validatedData);
+        // Les données sont déjà validées à ce stade
+        $validatedData = $request->validated();
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        // Créer l'utilisateur
+        User::create($validatedData);
 
-         return redirect()->route('login')->with('success', 'Inscription réussie, veuillez vous connecter !');
+        return redirect()->route('login')->with('success', 'Inscription réussie, veuillez vous connecter !');
     }
 
-     // Affiche le formulaire de connexion
-     public function loginForm()
-     {
-         return view('users.login'); // Vue pour la connexion
-     }
+    // Affiche le formulaire de connexion
+    public function loginForm()
+    {
+        return view('users.login'); // Vue pour la connexion
+    }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
+
+        // Validation des données
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+            'remember' => 'nullable|boolean', // Validation pour "remember"
         ]);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+        // Récupération des données
+        $credentials = $request->only('email', 'password');
+        $remember = $request->boolean('remember'); // Conversion en booléen
+
+        // Tentative d'authentification
+        if (Auth::attempt($credentials, $remember)) {
+            // Authentification réussie
+            $request->session()->regenerate(); // Régénération de la session pour plus de sécurité
             return redirect()->intended('/')->with('success', 'Vous êtes connecté !');
         }
 
-        return back()->withErrors([
-            'email' => 'Les informations fournies ne correspondent pas.',
+        // Gestion de l'échec de l'authentification
+        throw ValidationException::withMessages([
+            'email' => ['Les informations fournies ne correspondent pas.'],
         ]);
     }
 
-     // Gère la déconnexion de l'utilisateur
-     public function logout()
-     {
-         Auth::logout();
-         return redirect()->route('login')->with('success', 'Vous êtes déconnecté.');
-     }
+    // Gère la déconnexion de l'utilisateur
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login')->with('success', 'Vous êtes déconnecté.');
+    }
 
     /**
      * Display the specified resource.

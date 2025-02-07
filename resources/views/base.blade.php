@@ -42,7 +42,8 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title d-flex" id="navbarLabel" style="color: white;">
-                        <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="CIN" class="img-fluid" style="max-width: 50px;">Club les Intéllos du Numérique
+                        <img id="cin" src="{{ asset('storage/images/CIN.jpg') }}" alt="CIN" class="img-fluid" style="max-width: 50px;">
+                        Club les Intéllos du Numérique
                     </h5>
                     <button type="button" class="btn-close bg-primary" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
@@ -56,59 +57,54 @@
 
                         <!-- Vérification si l'utilisateur est authentifié -->
                         @auth
-                            <!-- Menu déroulant pour l'utilisateur connecté -->
-                            <li class='nav-item dropdown d-none d-xl-inline-block user-dropdown'>
-                                <a
-                                    class='nav-link dropdown-toggle'
-                                    id='UserDropdown'
-                                    href='#'
-                                    data-bs-toggle='dropdown'
-                                    aria-expanded='false'
-                                >
+                        <!-- Menu déroulant pour l'utilisateur connecté -->
+                        <li class='nav-item dropdown d-xl-inline-block user-dropdown'>
+                            <a
+                                class='nav-link dropdown-toggle'
+                                id='UserDropdown'
+                                href='#'
+                                data-bs-toggle='dropdown'
+                                aria-expanded='true'>
+                                <img
+                                    class='img-xs rounded-circle w-25 h-auto'
+                                    src='{{ asset("theme/images/faces/face8.jpg") }}'
+                                    alt='{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}'>
+                            </a>
+                            <div
+                                class='dropdown-menu dropdown-menu-right navbar-dropdown'
+                                aria-labelledby='UserDropdown'>
+                                <div class='dropdown-header text-center'>
                                     <img
-                                        class='img-xs rounded-circle w-25 h-auto'
+                                        class='img-md rounded-circle'
                                         src='{{ asset("theme/images/faces/face8.jpg") }}'
-                                        alt='{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}'
-                                    >
-                                </a>
-                                <div
-                                    class='dropdown-menu dropdown-menu-right navbar-dropdown'
-                                    aria-labelledby='UserDropdown'
-                                >
-                                    <div class='dropdown-header text-center'>
-                                        <img
-                                            class='img-md rounded-circle'
-                                            src='{{ asset("theme/images/faces/face8.jpg") }}'
-                                            alt='{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}'
-                                        >
-                                        <p class='mb-1 mt-3 font-weight-semibold'>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</p>
-                                        <p class='font-weight-light text-muted mb-0'>{{ Auth::user()->email }}</p>
-                                    </div>
-
-                                    <!-- Bouton pour afficher le popover avec plus d'informations -->
-                                    <button
-                                        id='profilePopover'
-                                        type='button'
-                                        class='dropdown-item'
-                                        data-bs-toggle='popover'
-                                        title='<strong>Profil Utilisateur</strong>'
-                                        data-bs-html='true'
-                                    >
-                                        Voir Plus d'Informations
-                                    </button>
-
-                                    <!-- Autres options -->
-
-                                    <!-- Formulaire de déconnexion -->
-                                    <form action="{{ route('logout') }}" method='POST' style='display:inline;'>
-                                        @csrf
-                                        <button type='submit' class='dropdown-item'>Se déconnecter<i class='dropdown-item-icon ti-power-off'></i></button>
-                                    </form>
+                                        alt='{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}'>
+                                    <p class='mb-1 mt-3 font-weight-semibold'>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</p>
+                                    <p class='font-weight-light text-muted mb-0'>{{ Auth::user()->email }}</p>
                                 </div>
-                            </li>
+
+                                <!-- Bouton pour afficher le popover avec plus d'informations -->
+                                <button
+                                    id='profilePopover'
+                                    type='button'
+                                    class='dropdown-item'
+                                    data-bs-toggle='popover'
+                                    title='<strong>Profil Utilisateur</strong>'
+                                    data-bs-html='true'>
+                                    Voir Plus d'Informations
+                                </button>
+
+                                <!-- Autres options -->
+
+                                <!-- Formulaire de déconnexion -->
+                                <form action="{{ route('logout') }}" method='POST' style='display:inline;'>
+                                    @csrf
+                                    <button type='submit' class='dropdown-item'>Se déconnecter<i class='dropdown-item-icon ti-power-off'></i></button>
+                                </form>
+                            </div>
+                        </li>
                         @else
-                            <!-- Lien de connexion si l'utilisateur n'est pas authentifié -->
-                            <li class='nav-item'><a href='{{ route('login') }}' class='login-button nav-link' style='color:azure'>Se connecter</a></li>
+                        <!-- Lien de connexion si l'utilisateur n'est pas authentifié -->
+                        <li class='nav-item'><a href='{{ route('login') }}' class='login-button nav-link' style='color:azure'>Se connecter</a></li>
                         @endauth
                     </ul>
                 </div>
@@ -121,8 +117,7 @@
                 data-bs-toggle='offcanvas'
                 data-bs-target='#navbarNav'
                 aria-controls='#navbarNav'
-                aria-label=''
-            >
+                aria-label=''>
                 <span class='navbar-toggler-icon'></span>
             </button>
         </nav>
@@ -136,11 +131,9 @@
         <div class='footer mt-auto' style='color:azure; background:mediumseagreen'>
             <div class='container-fluid clearfix d-flex' style='justify-content:space-between'>
                 <span
-                    class='text-muted d-block text-center text-sm-left d-sm-inline-block'
-                >&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</span>
+                    class='text-muted d-block text-center text-sm-left d-sm-inline-block'>&copy; 2024 Club les Intéllos du Numérique. Tous droits réservés.</span>
                 <span
-                    class='float-none float-sm-right d-block mt-1 mt-sm-0 text-center'
-                >Contactez-nous :
+                    class='float-none float-sm-right d-block mt-1 mt-sm-0 text-center'>Contactez-nous :
                     <a href='mailto:cin@gmail.com' style='color:azure'>cin@gmail.com</a></span>
             </div>
         </div>
@@ -156,41 +149,49 @@
 
     <!-- Script pour initialiser le popover -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var profilePopover = document.getElementById('profilePopover');
 
-            // Contenu HTML dynamique du popover avec un bouton pour fermer
-            var popoverContent = `
-                <p><strong>Nom :</strong> {{ Auth::user()->firstname }}</p>
-                <p><strong>Prénom :</strong> {{ Auth::user()->lastname }}</p>
-                <p><strong>Email :</strong> {{ Auth::user()->email }}</p>
-                <p><strong>Téléphone :</strong> {{ Auth::user()->telephone }}</p>
-                @if(Auth::id() === Auth::user()->id)
-                    <a href="{{ route('users.edit', Auth::user()->id) }}" class='btn btn-warning btn-sm mt-2'>Modifier mes informations</a><br />
-                @endif
-                @if(Auth::user()->isAdmin())
-                    <a href="{{ route('users.index') }}" class='btn btn-info btn-sm mt-2'>Gérer les utilisateurs</a><br />
-                @endif
-                <!-- Bouton pour fermer le popover -->
-                <button type='button' id='closePopover' onclick="$(this).closest('.popover').popover('hide'); return false;" class='btn btn-secondary btn-sm mt-2'>Fermer</button>
-            `;
+            // Vérification si l'élément existe (important si la section n'est pas toujours rendue)
+            if (profilePopover) {
 
-            // Initialiser Bootstrap Popover
-            var popoverInstance = new bootstrap.Popover(profilePopover, {
-                content: popoverContent,
-                html: true,
-                trigger: 'click', // Affiche le popover au clic
-                placement: 'bottom' // Positionne le popover en bas du bouton
-            });
+                var popoverContent = ''; // Initialisation par défaut
 
-            // Gérer la fermeture du popover par le bouton "Fermer"
-            document.addEventListener('click', function (event) {
-                if (event.target && event.target.id === 'closePopover') {
-                    popoverInstance.hide(); // Cache le popover
-                }
-            });
+                @auth
+                popoverContent = `
+                    <p><strong>Nom :</strong> {{ Auth::user()->firstname }}</p>
+                    <p><strong>Prénom :</strong> {{ Auth::user()->lastname }}</p>
+                    <p><strong>Email :</strong> {{ Auth::user()->email }}</p>
+                    <p><strong>Téléphone :</strong> {{ Auth::user()->telephone }}</p>
+                    @if(Auth::id() === Auth::user()->id)
+                        <a href="{{ route('users.edit', Auth::user()->id) }}" class='btn btn-warning btn-sm mt-2'>Modifier mes informations</a><br />
+                    @endif
+                    @if(Auth::user()->isAdmin())
+                        <a href="{{ route('users.index') }}" class='btn btn-info btn-sm mt-2'>Gérer les utilisateurs</a><br />
+                    @endif
+                    <!-- Bouton pour fermer le popover -->
+                    <button type='button' id='closePopover' onclick="$(this).closest('.popover').popover('hide'); return false;" class='btn btn-secondary btn-sm mt-2'>Fermer</button>
+                `;
+
+                // Initialiser Bootstrap Popover
+                var popoverInstance = new bootstrap.Popover(profilePopover, {
+                    content: popoverContent,
+                    html: true,
+                    trigger: 'click', // Affiche le popover au clic
+                    placement: 'bottom' // Positionne le popover en bas du bouton
+                });
+
+                // Gérer la fermeture du popover par le bouton "Fermer"
+                document.addEventListener('click', function(event) {
+                    if (event.target && event.target.id === 'closePopover') {
+                        popoverInstance.hide(); // Cache le popover
+                    }
+                });
+                @endauth
+            }
         });
     </script>
+
 
 </body>
 

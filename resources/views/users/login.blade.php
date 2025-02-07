@@ -53,8 +53,9 @@
                             </div>
                             <div class="form-group d-flex justify-content-between">
                                 <div class="form-check form-check-flat mt-0">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" checked> Keep me signed in </label>
+                                    <label class="form-check-label" for="remember">
+                                        <input type="checkbox" class="form-check-input" name="remember" id="remember"> Se souvenir de moi
+                                    </label>
                                 </div>
                                 <a href="#" class="text-small forgot-password text-black">Mot de passe oublié</a>
                             </div>

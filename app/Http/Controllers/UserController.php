@@ -15,7 +15,18 @@ class UserController extends Controller
     // Middleware pour protéger certaines routes
     public function __construct()
     {
-        $this->middleware('auth')->except(['create', 'store', 'loginForm', 'login']);
+
+        $this->middleware('auth')->except([
+            'create', // Formulaire de création d'un élément (public)
+            'store',  // Traitement de la création d'un élément (public)
+        ]);
+
+        $this->middleware('admin')->only([
+            'index',   // Afficher la liste des éléments (admin)
+            'edit',    // Afficher le formulaire d'édition d'un élément (admin)
+            'update',  // Traiter la modification d'un élément (admin)
+            'destroy'  // Supprimer un élément (admin)
+        ]);
     }
     /**
      * Display a listing of the resource.

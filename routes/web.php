@@ -36,7 +36,7 @@ Route::get('/membership', [MembershipController::class, 'getmembership'])->name(
 Route::get('/about', [AboutController::class, 'getabout'])->name('about');
 //Route::get('/login', [AuthController::class, 'getlogin'])->name('login');
 Route::get('/signin', [AuthController::class, 'getsignin'])->name('signin');
-Route::get('/dashboard', [DashboardController::class, 'getdashboard'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'getdashboard'])->name('dashboard')->middleware('admin');
 
 //Route::get('/trainings', [TrainingsController::class, 'gettrainings'])->name('dash.trainings');
 //Route::get('/blogs', [BlogController::class, 'getblogs'])->name('dash.blogs');

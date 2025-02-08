@@ -19,6 +19,6 @@ class adminMiddleware
             return $next($request);
         }
 
-        abort(403);
+        return redirect()->route('home')->with('error', 'Vous n\'avez pas accès à cette page !');
     }
 }

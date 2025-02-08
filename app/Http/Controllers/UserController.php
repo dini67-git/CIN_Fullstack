@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SigninRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -19,6 +18,7 @@ class UserController extends Controller
         $this->middleware('auth')->except([
             'create', // Formulaire de création d'un élément (public)
             'store',  // Traitement de la création d'un élément (public)
+            'loginForm',
         ]);
 
         $this->middleware('admin')->only([
@@ -89,8 +89,8 @@ class UserController extends Controller
         }
 
         // Gestion de l'échec de l'authentification
-        throw ValidationException::withMessages([
-            'email' => ['Les informations fournies ne correspondent pas.'],
+        return redirect()->back()->withInput()->withErrors([
+            'email' => 'Les informations fournies ne correspondent pas.',
         ]);
     }
 

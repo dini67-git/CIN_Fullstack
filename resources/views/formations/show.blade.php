@@ -10,7 +10,7 @@
             {{ session('success') }}
         </div>
     @endif
-    
+
     <div class="card shadow-sm rounded mb-2">
         @if ($formation->image)
             <!-- Ajout des attributs width et height pour redimensionner l'image -->

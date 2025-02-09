@@ -16,9 +16,10 @@ class UserController extends Controller
     {
 
         $this->middleware('auth')->except([
+            'loginForm',
+            'login',
             'create', // Formulaire de création d'un élément (public)
             'store',  // Traitement de la création d'un élément (public)
-            'loginForm',
         ]);
 
         $this->middleware('admin')->only([
@@ -81,17 +82,15 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
         $remember = $request->boolean('remember'); // Conversion en booléen
 
-        // Tentative d'authentification
-        if (Auth::attempt($credentials, $remember)) {
-            // Authentification réussie
-            $request->session()->regenerate(); // Régénération de la session pour plus de sécurité
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             return redirect()->intended('/')->with('success', 'Vous êtes connecté !');
         }
-
-        // Gestion de l'échec de l'authentification
-        return redirect()->back()->withInput()->withErrors([
+        return back()->withErrors([
             'email' => 'Les informations fournies ne correspondent pas.',
         ]);
+
+        // Gestion de l'échec de l'authentification
+
     }
 
     // Gère la déconnexion de l'utilisateur

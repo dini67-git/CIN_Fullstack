@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="prix" class="form-label">Prix (€) :</label>
+                    <label for="prix" class="form-label">Prix (Fcfa) :</label>
                     <input type="number" name="prix" id="prix" class="form-control" step="0.01" required
                         value="{{ old('prix', $formation->prix ?? '') }}">
                 </div>

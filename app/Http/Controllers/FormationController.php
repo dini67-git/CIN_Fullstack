@@ -13,6 +13,7 @@ class FormationController extends Controller
      */
     public function index()
     {
+        $this->authorize('index',Formation::class,);
         //
         $formations = Formation::all();
         return view('formations.index', compact('formations'));
@@ -23,7 +24,7 @@ class FormationController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Formation::class);
         return view('formations.edit');
     }
 
@@ -32,6 +33,7 @@ class FormationController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Formation::class );
         //
         $request->validate([
             'titre' => 'required|string|max:255',
@@ -74,6 +76,7 @@ class FormationController extends Controller
      */
     public function edit(Formation $formation)
     {
+        $this->authorize('update', $formation);
         //
         return view('formations.edit', compact('formation'));
     }
@@ -83,6 +86,7 @@ class FormationController extends Controller
      */
     public function update(Request $request, Formation $formation)
     {
+        $this->authorize('update', $formation);
         // 1. La validation des données
         $rules = [
             'titre' => 'bail|required|string|max:255',
@@ -131,6 +135,7 @@ class FormationController extends Controller
      */
     public function destroy(Formation $formation)
     {
+        $this->authorize('delete', $formation);
         //
         if ($formation->image) {
             Storage::delete('public/' . $formation->image);

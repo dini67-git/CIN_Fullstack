@@ -13,6 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        $this->authorize('index', Post::class);
         //On recupère tous les Post
         $posts = Post::latest()->get();
 
@@ -26,6 +27,7 @@ class PostController extends Controller
     public function create()
     {
         // On retourne la vue "/resources/views/posts/edit.blade.php"
+        $this ->authorize('create', Post::class);
         return view('posts.edit');
     }
 
@@ -34,6 +36,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Post::class);
         // 1. La validation
         $this->validate($request, [
             'title' => 'bail|required|string|max:255',
@@ -69,6 +72,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
         //
         return view('posts.edit', compact('post'));
     }
@@ -78,6 +82,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update', $post);
         // 1. La validation
 
         // Les règles de validation pour "title" et "content"
@@ -119,6 +124,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
         // On supprime l'image existant
         Storage::delete('public/posts/'.$post->picture);
 

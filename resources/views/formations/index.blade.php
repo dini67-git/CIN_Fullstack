@@ -46,7 +46,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $formation->titre }}</td>
-                                    <td>{{ number_format($formation->prix, 2) }} €</td>
+                                    <td style="color: orangered"> <strong> {{ number_format($formation->prix, 2) }} Fcfa </strong></td>
                                     <td>{{ $formation->date_debut }}</td>
                                     <td>{{ $formation->date_fin }}</td>
                                     <td>

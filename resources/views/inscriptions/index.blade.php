@@ -68,7 +68,7 @@
                                     <td>{{ $inscription->prenom }}</td>
                                     <td>{{ $inscription->email }}</td>
                                     <td>{{ $inscription->telephone }}</td>
-                                    <td>{{ number_format($inscription->montant, 2) }} €</td> <!-- Formatage du montant -->
+                                    <td style="color:orangered"> <strong>{{ number_format($inscription->montant, 2) }} Fcfa </strong> </td> <!-- Formatage du montant -->
                                     <td>{{ $inscription->status }}</td>
 
                                     <!-- Actions : Modifier et Supprimer -->

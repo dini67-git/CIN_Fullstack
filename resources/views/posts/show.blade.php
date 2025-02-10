@@ -10,7 +10,7 @@
 
         <div class="mt-3">{{ $post->content }}</div>
     </div>
-    <p class="mt-5"><a href="{{ route('posts.index') }}" title="Retourner aux articles">Retourner aux posts</a></p>
+    <p class="mt-5"><a class="btn btn-secondary" href="{{ route('posts.index') }}" title="Retourner aux articles">Retourner aux posts</a></p>
 
 </div>
 @endsection

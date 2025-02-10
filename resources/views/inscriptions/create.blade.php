@@ -8,20 +8,20 @@
     <h1>Inscrivez-vous à {{ $formation->titre }}</h1> <!-- Assurez-vous que c'est bien $formation->titre -->
 
     @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
     @endif
 
     <form action="{{ route('formations.inscription.store', $formation) }}" method="POST">
         @csrf
 
         <input type="hidden" name="admin_inscription" value="{{ Auth::check() && Auth::user()->isAdmin() ? '1' : '0' }}">
-        
+
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" required>
 
@@ -34,17 +34,13 @@
         <label for="telephone">Téléphone :</label>
         <input type="text" name="telephone" id="telephone" required>
 
-        <button type="submit">S'inscrire</button>
+        <button class="btn btn-primary" type="submit">S'inscrire</button>
     </form>
 
     <!-- Bouton Retour -->
-    @if (Auth::user()->isAdmin())
     <div class="mt-3">
-        <a href="{{ route('formations.show', $formation) }}">Retour à la formation</a>
+        <a class="btn btn-secondary" href="{{ route('formations.show', $formation) }}">Retour à la formation</a>
     </div>
-    @else
-
-    @endif
 </div>
 
 @endsection

@@ -14,6 +14,7 @@ class InscriptionController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('index', Inscription::class);
 
         // Récupérer le terme de recherche depuis la requête
         $searchTerm = $request->input('search');
@@ -27,7 +28,7 @@ class InscriptionController extends Controller
                     ->orWhere('email', 'like', "%{$searchTerm}%");
             }
         }])
-            ->paginate(10); // Paginer les formations (5 formations par page)
+            ->paginate(5); // Paginer les formations (5 formations par page)
 
         // Retourner la vue avec les formations et le terme de recherche
         return view('inscriptions.index', compact('formations', 'searchTerm'));
@@ -47,6 +48,8 @@ class InscriptionController extends Controller
      */
     public function store(Request $request, Formation $formation)
     {
+        $this->authorize('create', $formation);
+
         //
         $request->validate([
             'nom' => 'required|string|max:255',
@@ -54,6 +57,11 @@ class InscriptionController extends Controller
             'email' => 'required|email|max:255',
             'telephone' => 'required|string|max:15',
         ]);
+
+        // Vérifiez si l'inscription existe déjà avec le même email pour cette formation
+        if (Inscription::where('email', $request->email)->where('formation_id', $formation->id)->exists()) {
+            return redirect()->back()->withErrors(['email' => 'Cet email est déjà utilisé pour cette formation.']);
+        }
 
         // Vérification si l'utilisateur est un membre existant par email.
         $membre = User::where('email', $request->email)
@@ -94,11 +102,11 @@ class InscriptionController extends Controller
      */
     public function edit(string $id)
     {
-        //Récuperer l'inscription par son ID
         $inscription = Inscription::findOrFail($id);
-
+        $this->authorize('update', arguments: $inscription);
+        $formations = Formation::all();
         // Retourner la vue avec l'inscription à modifier
-        return view('inscriptions.edit', compact('inscription'));
+        return view('inscriptions.edit', compact('inscription', 'formations'));
     }
 
     /**
@@ -106,6 +114,8 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $inscription = Inscription::findOrFail($id);
+        $this->authorize('update', $inscription);
         // Validation des données du formulaire
         $request->validate([
             'nom' => 'required|string|max:255',
@@ -116,7 +126,16 @@ class InscriptionController extends Controller
         ]);
 
         // Récupérer l'inscription par son ID
-        $inscription = Inscription::findOrFail($id);
+
+        $formation = Formation::findOrFail($request->formation_id);
+
+        // Vérifiez si l'inscription existe déjà avec le même email pour cette formation
+        if (Inscription::where('email', $request->email)
+            ->where('formation_id', '<>', $inscription->formation_id) // Assurez-vous que ce n'est pas la même formation
+            ->exists()
+        ) {
+            return redirect()->back()->withErrors(['email' => 'Cet email est déjà utilisé pour une autre formation.']);
+        }
 
         // Mettre à jour les informations de l'inscription
         $inscription->update([
@@ -124,8 +143,11 @@ class InscriptionController extends Controller
             'prenom' => $request->prenom,
             'email' => $request->email,
             'telephone' => $request->telephone,
+            'formation_id' => $inscription->formation_id,
+            'montant' => $formation->prix,
             // Ajoutez d'autres champs à mettre à jour si nécessaire
         ]);
+
 
         return redirect()->route('inscription.index')->with('success', "Inscription mise à jour avec succès !");
     }
@@ -136,6 +158,7 @@ class InscriptionController extends Controller
     public function destroy(string $id)
     {
         $inscription = Inscription::findOrFail($id);
+        $this->authorize('delete', $inscription);
 
         $inscription->delete();
 

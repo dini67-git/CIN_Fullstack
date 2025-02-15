@@ -25,35 +25,28 @@
         @endif
 
         <!-- Formulaire d'édition -->
-        <form method="POST" action="{{ route('inscription.update', $inscription->id) }}">
+        <form action="{{ route('inscription.update', $inscription->id) }}" method="POST">
             @csrf
             @method('PUT')
 
-            <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" class="form-control" value="{{ old('nom', $inscription->nom) }}" required>
-            </div>
+            <!-- Champs pour nom, prénom, email, téléphone -->
+            <input type="text" name="nom" value="{{ old('nom', $inscription->nom) }}" required>
+            <input type="text" name="prenom" value="{{ old('prenom', $inscription->prenom) }}" required>
+            <input type="email" name="email" value="{{ old('email', $inscription->email) }}" required>
+            <input type="text" name="telephone" value="{{ old('telephone', $inscription->telephone) }}" required>
 
-            <div class="form-group">
-                <label for="prenom">Prénom</label>
-                <input type="text" name="prenom" id="prenom" class="form-control" value="{{ old('prenom', $inscription->prenom) }}" required>
-            </div>
+            <!-- Sélection de la formation -->
+            <select name="formation_id" required>
+                @foreach ($formations as $formation)
+                <option value="{{ $formation->id }}" {{ $inscription->formation_id == $formation->id ? 'selected' : '' }}>
+                    {{ $formation->titre }}
+                </option>
+                @endforeach
+            </select>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $inscription->email) }}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="telephone">Téléphone</label>
-                <input type="text" name="telephone" id="telephone" class="form-control" value="{{ old('telephone', $inscription->telephone) }}" required>
-            </div>
-
-            <!-- Ajoutez d'autres champs si nécessaire -->
-
-            <button type="submit" class="btn btn-primary">Mettre à jour</button>
-            <a href="{{ route('inscription.index') }}" class="btn btn-secondary">Annuler</a> <!-- Lien pour annuler -->
+            <button type="submit">Mettre à jour</button>
         </form>
+
     </div>
 </div>
 

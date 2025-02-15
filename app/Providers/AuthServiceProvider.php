@@ -6,8 +6,10 @@ namespace App\Providers;
 
 use App\Models\Post;
 use App\Models\Formation;
+use App\Models\Inscription;
 use App\Policies\PostPolicy;
 use App\Policies\FormationPolicy;
+use App\Policies\InscriptionPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -20,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Post::class=>PostPolicy::class,
         Formation::class=>FormationPolicy::class,
+        Inscription::class=>InscriptionPolicy::class,
     ];
 
     /**

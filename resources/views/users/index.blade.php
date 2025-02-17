@@ -23,8 +23,8 @@
 <div class="col-lg-12 my-3 stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Liste des Utilisateurs</h4>
-            <p class="card-description">Tableau avec classes contextuelles</p>
+            <h4 class="card-title">Membres Approuvés</h4>
+            <p class="card-description">Liste des utilisateurs approuvés.</p>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -36,7 +36,7 @@
                             <th>Téléphone</th>
                             <th>Email</th>
                             <th>Rôle</th>
-                            <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,24 +50,77 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role }}</td>
                             <td>
-                                <!-- Boutons d'action -->
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">Voir</a> <!-- Voir -->
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success btn-sm">Modifier</a> <!-- Modifier -->
-                                <!-- Formulaire pour supprimer un utilisateur -->
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">Voir</a>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success btn-sm">Modifier</a>
                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</button> <!-- Supprimer -->
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
-
             </div>
             @if($users->isEmpty())
-            <div class="alert alert-warning mt-3">Aucun utilisateur trouvé.</div>
+            <div class="alert alert-warning mt-3">Aucun membre approuvé trouvé.</div>
+            @endif
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 my-3 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">En Attente d'Approbation</h4>
+            <p class="card-description">Liste des utilisateurs en attente d'approbation.</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Sexe</th>
+                            <th>Téléphone</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($attentes as $user)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $user->firstname }}</td>
+                            <td>{{ $user->lastname }}</td>
+                            <td>{{ $user->sexe }}</td>
+                            <td>{{ $user->telephone }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
+                            <td>
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-primary btn-sm">Voir</a>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-success btn-sm">Modifier</a>
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</button>
+
+                                </form>
+                                <form action="{{ route('users.approuver', $user) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('GET')
+                                    <button type="submit" class="btn btn-success btn-sm">Approuver</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            @if($attentes->isEmpty())
+            <div class="alert alert-warning mt-3">Aucun utilisateur en attente d'approbation.</div>
             @endif
         </div>
     </div>

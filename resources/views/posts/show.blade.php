@@ -3,8 +3,8 @@
 @section('title', '$post->title')
 
 @section('content')
-<div class="container-fluid mt-5">
-    <h1 class="mb-4">{{ $post->title }}</h1>
+<div class="container-fluid mt-5 bg-white">
+    <h1 class="mb-4 text-center text-dark bg-info p-2">{{ $post->title }}</h1>
     <div class="">
         <img class="img-fluid img-responsive" src="{{ asset('storage/'.$post->picture) }}" alt="Image de couverture" style="max-width: 100vw;">
 

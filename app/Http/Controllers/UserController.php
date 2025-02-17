@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\ApprobationEmail;
 use App\Http\Requests\SigninRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -35,8 +37,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::all();
-        return view('users.index', compact('users'));
+        $users = User::whereNotNull('approuvé')->get();
+        $attentes = User::whereNull('approuvé')->get();
+        return view('users.index', compact('users', 'attentes'));
     }
 
     /**
@@ -60,6 +63,16 @@ class UserController extends Controller
         User::create($validatedData);
 
         return redirect()->route('login')->with('success', 'Inscription réussie, veuillez vous connecter !');
+    }
+
+    public function approuver(User $user){
+        $user->approuvé = now();
+        $user->save();
+
+        // Envoyer un email à l'utilisateur pour confirmer l'approbation
+        Mail::to($user->email)->send(new ApprobationEmail($user));
+
+        return redirect()->route('users.index')->with('success', 'Utilisateur approuvé et email envoyé.');
     }
 
     // Affiche le formulaire de connexion

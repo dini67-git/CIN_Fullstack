@@ -1,8 +1,14 @@
-@component('mail::message')
-# Bonjour {{ $name }},
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Approbation de votre inscription</title>
+</head>
+<body>
+    <h1>Bonjour {{ $name }},</h1>
 
-Votre inscription a été approuvée !
+    <p>Votre inscription a été approuvée !</p>
 
-Merci,<br>
-{{ config('app.name') }}
-@endcomponent
+    <p>Merci,<br>{{ config('app.name') }}</p>
+</body>
+</html>

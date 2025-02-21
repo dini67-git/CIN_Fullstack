@@ -66,13 +66,19 @@ class UserController extends Controller
     }
 
     public function approuver(User $user){
-        $user->approuvé = now();
-        $user->save();
+        try {
+            $user->approuvé = now();
+            $user->save();
 
-        // Envoyer un email à l'utilisateur pour confirmer l'approbation
-        Mail::to($user->email)->send(new ApprobationEmail($user));
+            // Envoyer un email à l'utilisateur pour confirmer l'approbation
+            Mail::to($user->email)->send(new ApprobationEmail($user));
 
-        return redirect()->route('users.index')->with('success', 'Utilisateur approuvé et email envoyé.');
+            return redirect()->route('users.index')->with('success', 'Utilisateur approuvé et email envoyé.');
+
+        } catch (\Exception $e) {
+            // En cas d'erreur, redirigez avec un message d'erreur
+            return redirect()->route('users.index')->with('error', 'Erreur lors de l\'envoi de l\'email : ' . $e->getMessage());
+        }
     }
 
     // Affiche le formulaire de connexion

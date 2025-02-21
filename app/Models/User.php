@@ -27,6 +27,7 @@ class User extends Authenticatable
         'filiere',
         'password',
         'role',
+        'approuvé',
         'remember_token',
     ];
 

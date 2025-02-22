@@ -14,7 +14,7 @@ class ApprobationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public User $user;
     /**
      * Create a new message instance.
      */
@@ -36,16 +36,19 @@ class ApprobationEmail extends Mailable
     {
         return new Envelope(
             subject: 'Approbation Email',
+
         );
     }
 
     /**
      * Get the message content definition.
      */
-   /* public function content(): Content
+    public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.approbation',
+            with: ['name' => $this->user->firstname . ' '. $this->user->lastname],
+
         );
     }
 

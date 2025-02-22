@@ -19,6 +19,18 @@
         </div>
     </div>
 </div>
+</br>
+
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+@if(session('error'))
+<div class="alert alert-warning">
+    {{ session('error') }}
+</div>
+@endif
 
 <div class="col-lg-12 my-3 stretch-card">
     <div class="card">
